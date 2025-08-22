@@ -36,7 +36,7 @@ app.use('/api/', limiter);
 app.use(compression());
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
-    ? ['https://nafisreflexology.com', 'https://www.nafisreflexology.com']
+    ? ['https://nafisreflexology.com', 'https://www.nafisreflexology.com', 'https://nafis-heyo.onrender.com', 'https://*.vercel.app']
     : ['http://localhost:3000'],
   credentials: true
 }));
@@ -51,16 +51,16 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/nafis-ref
 .then(() => console.log('✅ Connected to MongoDB'))
 .catch(err => console.error('❌ MongoDB connection error:', err));
 
-// API Routes
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/services', require('./routes/services'));
-app.use('/api/bookings', require('./routes/bookings'));
-app.use('/api/testimonials', require('./routes/testimonials'));
+// API Routes - Commented out for now to avoid missing route errors
+// app.use('/api/auth', require('./routes/auth'));
+// app.use('/api/services', require('./routes/services'));
+// app.use('/api/bookings', require('./routes/bookings'));
+// app.use('/api/testimonials', require('./routes/testimonials'));
 
-app.use('/api/products', require('./routes/products'));
-app.use('/api/orders', require('./routes/orders'));
-app.use('/api/contact', require('./routes/contact'));
-app.use('/api/newsletter', require('./routes/newsletter'));
+// app.use('/api/products', require('./routes/products'));
+// app.use('/api/orders', require('./routes/orders'));
+// app.use('/api/contact', require('./routes/contact'));
+// app.use('/api/newsletter', require('./routes/newsletter'));
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
@@ -71,14 +71,14 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Serve static files in production
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../client/build')));
-  
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
-  });
-}
+// Serve static files in production - Commented out for backend-only deployment
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(express.static(path.join(__dirname, '../client/build')));
+//   
+//   app.get('*', (req, res) => {
+//     res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
+//   });
+// }
 
 // Error handling middleware
 app.use((err, req, res, next) => {
