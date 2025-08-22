@@ -4,7 +4,7 @@ const helmet = require('helmet');
 const compression = require('compression');
 const rateLimit = require('express-rate-limit');
 const mongoose = require('mongoose');
-const path = require('path');
+// const path = require('path'); // Not needed for backend-only deployment
 require('dotenv').config();
 
 const app = express();
