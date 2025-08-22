@@ -51,16 +51,16 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/nafis-ref
 .then(() => console.log('✅ Connected to MongoDB'))
 .catch(err => console.error('❌ MongoDB connection error:', err));
 
-// API Routes - Commented out for now to avoid missing route errors
-// app.use('/api/auth', require('./routes/auth'));
-// app.use('/api/services', require('./routes/services'));
-// app.use('/api/bookings', require('./routes/bookings'));
-// app.use('/api/testimonials', require('./routes/testimonials'));
+// API Routes
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/services', require('./routes/services'));
+app.use('/api/bookings', require('./routes/bookings'));
+app.use('/api/testimonials', require('./routes/testimonials'));
 
-// app.use('/api/products', require('./routes/products'));
-// app.use('/api/orders', require('./routes/orders'));
-// app.use('/api/contact', require('./routes/contact'));
-// app.use('/api/newsletter', require('./routes/newsletter'));
+app.use('/api/products', require('./routes/products'));
+app.use('/api/orders', require('./routes/orders'));
+app.use('/api/contact', require('./routes/contact'));
+app.use('/api/newsletter', require('./routes/newsletter'));
 
 // Health check endpoint
 app.get('/api/health', (req, res) => {
