@@ -244,16 +244,16 @@ const Footer = () => {
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-4 pt-4 border-t border-gray-700/30"
+              className="mt-6 pt-4 border-t border-gray-700/30"
             >
               <div className="text-center">
-                <p className="text-gray-500 text-xs">
+                <p className="text-gray-400 text-sm font-medium">
                   Designed and built by{' '}
                   <a
                     href="https://www.wondwossendev.com/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-pink-400 hover:text-pink-300 transition-colors duration-300 font-medium"
+                    className="text-pink-400 hover:text-pink-300 transition-colors duration-300 font-semibold underline"
                   >
                     Wondwossen Hailhu
                   </a>

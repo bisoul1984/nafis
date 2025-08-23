@@ -8,18 +8,6 @@ const ServicesPreview = () => {
       duration: '60 min',
       price: '$75',
       description: 'Complete foot reflexology treatment targeting all pressure points.'
-    },
-    {
-      name: 'Hand Reflexology',
-      duration: '45 min',
-      price: '$55',
-      description: 'Therapeutic hand reflexology for stress relief and relaxation.'
-    },
-    {
-      name: 'Ear Reflexology',
-      duration: '30 min',
-      price: '$40',
-      description: 'Specialized ear reflexology for targeted healing.'
     }
   ];
 
@@ -35,7 +23,7 @@ const ServicesPreview = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 gap-8 mb-12 max-w-md mx-auto">
           {services.map((service, index) => (
             <div
               key={index}
