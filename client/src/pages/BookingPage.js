@@ -63,6 +63,11 @@ const BookingPage = () => {
   };
 
   useEffect(() => {
+    // Scroll to top when step changes
+    window.scrollTo(0, 0);
+  }, [currentStep]);
+
+  useEffect(() => {
     // Simulate fetching services from API
     setServices([
       {
