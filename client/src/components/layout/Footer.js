@@ -211,32 +211,7 @@ const Footer = () => {
                 © {currentYear} Nafis Reflexology. All rights reserved.
               </motion.div>
 
-              {/* Legal Links */}
-              <motion.div
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="flex flex-wrap justify-center gap-6 text-sm"
-              >
-                <Link
-                  to="/privacy"
-                  className="text-gray-400 hover:text-pink-400 transition-colors duration-300"
-                >
-                  Privacy Policy
-                </Link>
-                <Link
-                  to="/terms"
-                  className="text-gray-400 hover:text-pink-400 transition-colors duration-300"
-                >
-                  Terms of Service
-                </Link>
-                <Link
-                  to="/accessibility"
-                  className="text-gray-400 hover:text-pink-400 transition-colors duration-300"
-                >
-                  Accessibility
-                </Link>
-              </motion.div>
+
             </div>
             
             {/* Developer Credit */}
