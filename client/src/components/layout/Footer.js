@@ -238,6 +238,28 @@ const Footer = () => {
                 </Link>
               </motion.div>
             </div>
+            
+            {/* Developer Credit */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mt-4 pt-4 border-t border-gray-700/30"
+            >
+              <div className="text-center">
+                <p className="text-gray-500 text-xs">
+                  Designed and built by{' '}
+                  <a
+                    href="https://www.wondwossendev.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-pink-400 hover:text-pink-300 transition-colors duration-300 font-medium"
+                  >
+                    Wondwossen Hailhu
+                  </a>
+                </p>
+              </div>
+            </motion.div>
           </div>
         </div>
       </div>
