@@ -52,7 +52,7 @@ const Footer = () => {
   const contactInfo = [
     {
       icon: <MapPin className="w-5 h-5" />,
-      text: '123 Wellness Street, City, State 12345',
+      text: 'Addis Ababa, Kazanchis',
       href: null
     },
     {
