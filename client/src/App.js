@@ -4,6 +4,7 @@ import { ThemeProvider } from './contexts/ThemeContext';
 import { AuthProvider } from './contexts/AuthContext';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
+import ScrollToTop from './components/common/ScrollToTop';
 import HomePage from './pages/HomePage';
 import BookingPage from './pages/BookingPage';
 import DashboardPage from './pages/DashboardPage';
@@ -13,6 +14,7 @@ function App() {
     <AuthProvider>
       <ThemeProvider>
         <div className="App min-h-screen flex flex-col">
+          <ScrollToTop />
           <Header />
           <main className="flex-grow">
             <Routes>
