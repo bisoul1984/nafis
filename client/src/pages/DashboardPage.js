@@ -119,6 +119,18 @@ const DashboardPage = () => {
     .sort((a, b) => new Date(b.appointmentDate + ' ' + b.startTime) - new Date(a.appointmentDate + ' ' + a.startTime))
     .slice(0, 5);
 
+  // Handle delete booking
+  const handleDeleteBooking = (id) => {
+    if (window.confirm('Are you sure you want to delete this booking?')) {
+      setBookings(prev => prev.filter(booking => booking._id !== id));
+      
+      // Update localStorage
+      const existingBookings = JSON.parse(localStorage.getItem('bookings') || '[]');
+      const updatedBookings = existingBookings.filter(booking => booking._id !== id);
+      localStorage.setItem('bookings', JSON.stringify(updatedBookings));
+    }
+  };
+
   const [services] = useState([
     { id: 1, name: 'Foot Reflexology', price: 120, duration: '60 min', category: 'Reflexology', active: true },
     { id: 2, name: 'Deep Tissue Massage', price: 150, duration: '90 min', category: 'Massage', active: true },
@@ -147,7 +159,7 @@ const DashboardPage = () => {
                   value={loginForm.email}
                   onChange={(e) => setLoginForm({...loginForm, email: e.target.value})}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                  placeholder="admin@nafis.com"
+                  placeholder="Enter your email"
                   required
                 />
               </div>
@@ -161,7 +173,7 @@ const DashboardPage = () => {
                   value={loginForm.password}
                   onChange={(e) => setLoginForm({...loginForm, password: e.target.value})}
                   className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
-                  placeholder="admin123"
+                  placeholder="Enter your password"
                   required
                 />
               </div>
@@ -174,13 +186,7 @@ const DashboardPage = () => {
               </button>
             </form>
             
-            <div className="mt-6 p-4 bg-gray-50 rounded-lg">
-              <p className="text-sm text-gray-600 text-center">
-                <strong>Demo Credentials:</strong><br />
-                Email: admin@nafis.com<br />
-                Password: admin123
-              </p>
-            </div>
+
           </div>
         </div>
       </div>
@@ -337,6 +343,7 @@ const DashboardPage = () => {
                 <th className="text-left py-3 px-4 font-medium text-gray-600">Date & Time</th>
                 <th className="text-left py-3 px-4 font-medium text-gray-600">Status</th>
                 <th className="text-left py-3 px-4 font-medium text-gray-600">Amount</th>
+                <th className="text-left py-3 px-4 font-medium text-gray-600">Actions</th>
               </tr>
             </thead>
             <tbody>
@@ -362,6 +369,14 @@ const DashboardPage = () => {
                      </span>
                    </td>
                    <td className="py-3 px-4 font-medium text-gray-900">${booking.amount || booking.finalAmount || 0}</td>
+                   <td className="py-3 px-4">
+                     <button
+                       onClick={() => handleDeleteBooking(booking._id)}
+                       className="text-red-600 hover:text-red-700 text-sm font-medium"
+                     >
+                       Delete
+                     </button>
+                   </td>
                  </tr>
                ))}
             </tbody>
