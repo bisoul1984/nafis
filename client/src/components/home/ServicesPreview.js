@@ -49,17 +49,7 @@ const ServicesPreview = () => {
           ))}
         </div>
         
-        <div className="text-center">
-          <Link
-            to="/services"
-            className="inline-flex items-center px-8 py-3 border-2 border-purple-600 text-purple-600 rounded-lg hover:bg-purple-600 hover:text-white transition-all duration-200"
-          >
-            View All Services
-            <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
-        </div>
+
       </div>
     </section>
   );
